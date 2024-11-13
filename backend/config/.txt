@@ -1,0 +1,3 @@
+6ykxDMDwS4pmrgRs
+
+mongodb+srv://robbertjohn62:<db_password>@menuappdb.ttiw3.mongodb.net/?retryWrites=true&w=majority&appName=menuappdb
