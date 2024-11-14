@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const uri =
+  process.env.DB_URL ||
   "mongodb+srv://robbertjohn62:6ykxDMDwS4pmrgRs@menuappdb.ttiw3.mongodb.net/menudb?retryWrites=true&w=majority&appName=menuappdb";
 
 const connectDB = async () => {
