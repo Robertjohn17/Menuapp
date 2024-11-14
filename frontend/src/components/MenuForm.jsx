@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+const backend_url =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+
 function MenuForm({ onMenuCreated }) {
   const [menuName, setMenuName] = useState("");
   const [description, setDescription] = useState("");
@@ -8,7 +11,7 @@ function MenuForm({ onMenuCreated }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newMenu = { menuName, description };
-    const res = await axios.post("http://localhost:5000/api/menus", newMenu);
+    const res = await axios.post(`${backend_url}/api/menus`, newMenu);
     onMenuCreated(res.data);
     setMenuName("");
     setDescription("");

@@ -1,6 +1,8 @@
-
 import React, { useState } from "react";
 import axios from "axios";
+
+const backend_url =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
 function ItemForm({ menuId, onItemAdded }) {
   const [itemName, setItemName] = useState("");
@@ -10,10 +12,7 @@ function ItemForm({ menuId, onItemAdded }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newItem = { itemName, description, price };
-    await axios.post(
-      `http://localhost:5000/api/menus/${menuId}/items`,
-      newItem
-    );
+    await axios.post(`${backend_url}/api/menus/${menuId}/items`, newItem);
     onItemAdded(newItem);
     setItemName("");
     setDescription("");
